@@ -15,12 +15,17 @@ class NumArray(object):
         :rtype: int
         """
         prefixs = []
-        for index,num in enumerate(self.nums):
-            if index == 0:
-                prefixs.append(num)
-            else:
-                prefixs.append(num + prefixs[index - 1])
-        summ = prefixs[right] - prefixs[left] + self.nums[left]
+        orig = self.nums[::]
+        for index,num in enumerate(orig):
+            if index != 0:
+                orig[index] = num + orig[index - 1]
+        # for index,num in enumerate(self.nums):
+        #     if index == 0:
+        #         prefixs.append(num)
+        #     else:
+        #         prefixs.append(num + prefixs[index - 1])
+        summ = orig[right] - orig[left] + self.nums[left]
+        # summ = prefixs[right] - prefixs[left] + self.nums[left]
         return summ
                 
         
