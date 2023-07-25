@@ -1,4 +1,3 @@
-
 def my_func():
     from collections import defaultdict
 
